@@ -1,0 +1,34 @@
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/ace.js"></script>
+	<script>
+	var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setMode("ace/mode/php");
+
+$(document).ready(function() {
+  
+$('#run').on('click', function() {
+  var postData = {
+    language: "php",
+    code: editor.getValue()
+  };
+  
+  $.ajax({
+    type: "POST",
+    url: "http://162.243.116.84:9000/api/run",
+    data: postData, 
+    success: function(data) {
+      $('#results').html(data.Output);
+    }
+  });
+});
+
+});
+</script>
+
+  {{if eq .RunMode "dev"}}
+    {{template "debug.html" .}}
+  {{end}}
+  </body>
+</html>

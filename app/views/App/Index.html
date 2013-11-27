@@ -1,0 +1,31 @@
+{{set . "title" "Home"}}
+{{template "header.html" .}}
+
+  <div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+             <h3 class="panel-title">Editor</h3>
+        </div>
+        <div class="panel-body">
+            <div id="editor">&lt;?php
+// Type some code
+</div>
+          <br>
+          <input type="submit" class="btn btn-primary pull-right" id="run" value="Run">
+        </div>
+    </div>
+    
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Results</h3>
+      </div>
+      <div class="panel-body">
+        <pre id="results"></pre>
+      </div>
+    </div>
+    
+    
+</div>
+
+
+{{template "footer.html" .}}
